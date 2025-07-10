@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>削除ボタン</title>
+</head>
+<body>
+  <div id="item-container">
+  <div id="tx">
+  <label for="awake">選択してください</label>
+  <select id="awake">
+  <option value="orange">Orange</option>
+  <option value="lemon">Lemon</option>
+  <option value="strawberry">Strawberry</option>
+  </select>
+  <p>アワジ</p>
+  <button id="add-item">アイテムを追加</button>
+
+  <script>
+    const container = document.getElementById('item-container');
+    const addItemButton = document.getElementById('add-item');
+
+    // 削除ボタンのイベントを委譲
+    container.addEventListener('click', function (event) {
+      if (event.target.classList.contains('delete-btn')) {
+        event.target.parentElement.remove();
+      }
+    });
+
+    // 新しいアイテムを追加
+     addItemButton.addEventListener('click', function () {
+      const newItem = document.createElement('div');
+      newItem.className = 'item';
+      newItem.innerHTML =`<p>${user.value}</p><button class="delete-btn">削除</button>`;    
+      container.appendChild(newItem);
+    });
+    let user = document.getElementById("awake");
+  </script>
+</body>
+</html>
